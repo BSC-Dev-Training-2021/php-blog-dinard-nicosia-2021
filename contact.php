@@ -19,10 +19,10 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="post.html">Post</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="post.php">Post</a></li>
                     </ul>
                 </div>
             </div>
@@ -32,22 +32,30 @@
             <div class="row">
                 <div class="col-lg-8 align-self-start">
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-4">
                             <!-- Contact Us header-->
-                            <header class="mb-8">
+                            <header class="mb-4">
                                 <!-- Post title-->
-                                <h1 class="fw-bolder mb-1">Create a new blog entry</h1>
+                                <h1 class="fw-bolder mb-1">Contact Us</h1>
                                 <!-- Post meta content-->
-                                <div class="text-muted fst-italic mb-3">Express your mind!</div>
+                                <div class="text-muted fst-italic mb-3">We would like to hear from you!</div>
                             </header>
                             <!-- Post content-->
                             <section class="mb-5">
                                 <form>
                                     <div class="form-group">
-                                        <label for="exampleFormControlTextarea1" class="mb-1">Message</label>
-                                        <textarea class="form-control mb-1" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                        <label for="formGroupExampleInput" class="mb-1">Full Name</label>
+                                        <input type="text" class="form-control mb-1" id="formGroupExampleInput" placeholder="">
                                     </div>
-                                    <button type="submit" class="btn btn-primary mt-2">Post</button>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2" class="mb-1">Email</label>
+                                        <input type="text" class="form-control mb-1" id="formGroupExampleInput2" placeholder="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlTextarea1" class="mb-1">Message</label>
+                                        <textarea class="form-control mb-1" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-2">Submit</button>
                                 </form>
                             </section>
                         </div>

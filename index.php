@@ -19,10 +19,10 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="post.html">Post</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="post.php">Post</a></li>
                     </ul>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                             <div class="small text-muted">January 1, 2021</div>
                             <h2 class="card-title">Featured Post Title</h2>
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="article.html">Read more →</a>
+                            <a class="btn btn-primary" href="article.php">Read more →</a>
                         </div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
@@ -61,7 +61,7 @@
                                     <div class="small text-muted">January 1, 2021</div>
                                     <h2 class="card-title h4">Post Title</h2>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="article.html">Read more →</a>
+                                    <a class="btn btn-primary" href="article.php">Read more →</a>
                                 </div>
                             </div>
                             <!-- Blog post-->
@@ -71,7 +71,7 @@
                                     <div class="small text-muted">January 1, 2021</div>
                                     <h2 class="card-title h4">Post Title</h2>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="article.html">Read more →</a>
+                                    <a class="btn btn-primary" href="article.php">Read more →</a>
                                 </div>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
                                     <div class="small text-muted">January 1, 2021</div>
                                     <h2 class="card-title h4">Post Title</h2>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="article.html">Read more →</a>
+                                    <a class="btn btn-primary" href="article.php">Read more →</a>
                                 </div>
                             </div>
                             <!-- Blog post-->
@@ -93,7 +93,7 @@
                                     <div class="small text-muted">January 1, 2021</div>
                                     <h2 class="card-title h4">Post Title</h2>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
-                                    <a class="btn btn-primary" href="article.html">Read more →</a>
+                                    <a class="btn btn-primary" href="article.php">Read more →</a>
                                 </div>
                             </div>
                         </div>

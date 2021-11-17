@@ -41,15 +41,10 @@ include_once("./controler/article-controller.php");
                 <?php $article_obj = new article();
                 $result = $article_obj->getIdBlog($_GET['id']);
 
-                $categoriesById = new blog_post_categories();
-                $selectedCategories = $categoriesById->displayCategoriesById($_GET['id']);
-                
-                $categories_obj = new categories();
-                $categories = $categories_obj->findById($selectedCategories);
-                $catTypeName = $categories_obj->displayCategoriesFiltered($categories);
-                
-               //xdebug($categories);
-        
+
+
+                //xdebug($cat_type_name);
+
                 foreach ($result as $value) {
                 ?>
                     <article>
@@ -62,9 +57,22 @@ include_once("./controler/article-controller.php");
                                                                     $mysqldate = date('g:ia \o\n l jS F Y', $phpdate);
                                                                     echo $mysqldate; ?></div>
                             <!-- Post categories-->
-                            
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-                            <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                        <?php
+                    }
+                    $categoriesById = new blog_post_categories();
+                    $selectedCategories = $categoriesById->displayCategoriesById($_GET['id']);
+
+                    $categories_obj = new categories();
+                    $categories = $categories_obj->findById($selectedCategories);
+                    
+                    //foreach ($results as $value){
+                        ?>
+                        <a class="badge bg-secondary text-decoration-none link-light" href="#!"><?php $results = $categories_obj->displayCategoriesFiltered($categories);
+                                                                                                ?></a>
+                        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                        <?php
+                        //}
+                        foreach ($result as $value) { ?>
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4"><img class="img-fluid rounded" src="./assets/images/<?php echo $value['img_link']; ?>" alt="..." /></figure>

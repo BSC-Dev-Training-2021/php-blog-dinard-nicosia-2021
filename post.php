@@ -49,22 +49,36 @@ include_once("./controler/post-controller.php");
                         <!-- Post content-->
                         <section class="mb-5">
                             <form method="POST" action="post.php" enctype="multipart/form-data">
-                            <div class="input-group mb-3">
-                                    <span class="input-group-text">Content</span>
-                                    <textarea name="content" class="form-control" aria-label="With textarea"></textarea>
-                                </div>
-                                 <div class="input-group mb-3">
+                                <div class="input-group mb-3">
                                     <span class="input-group-text">Title</span>
                                     <input type="text" name="title" class="form-control" placeholder="Enter title...">
                                 </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Description </span>
+                                    <textarea name="description" class="form-control" aria-label="With textarea"></textarea>
+                                </div>
+
                                 <div class="form-group">
-                                    <label for="exampleFormControlTextarea1" class="mb-1">Description</label>
-                                    <textarea name="description" class="form-control mb-1" id="exampleFormControlTextarea1" rows="5"></textarea>
+                                    <label for="exampleFormControlTextarea1" class="mb-1">Content</label>
+                                    <textarea name="content" class="form-control mb-1" id="exampleFormControlTextarea1" rows="5"></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Image</label>
                                     <input name="img_link" class="form-control" type="file" id="formFile">
                                 </div>
+
+                                <?php
+                                $blogPostObj = new categories();
+                                $resultCategories = $blogPostObj->displayCategories();
+                                foreach ($resultCategories as $value) {
+                                ?>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="<?php echo $value['id']; ?>" name="category[]" id="flexCheckChecked<?php echo ($value['id']) ?> ">
+                                        <label class="form-check-label" for="flexCheckChecked<?php echo ($value['id']) ?> ">
+                                            <?php echo $value['name']; ?>
+                                        </label>
+                                    </div>
+                                <?php } ?>
                                 <button type="submit" name="submit_bttn" class="btn btn-primary mt-2">Post</button>
                             </form>
                         </section>

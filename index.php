@@ -1,3 +1,8 @@
+<?php
+session_start();
+require("./library/lib_handler.php");
+// $_SESSION['article-id'];
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,16 +46,23 @@
             <div class="row">
                 <!-- Blog entries-->
                 <div class="col-lg-8">
+                    <?php
+                    $blog = new blog();
+                    $result = $blog->getBlog(1);
+                    foreach($result as $value){ 
+                    ?>
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="./assets/images/<?php echo $value['img_link'];?>" alt="..." /></a>
                         <div class="card-body">
-                            <div class="small text-muted">January 1, 2021</div>
-                            <h2 class="card-title">Featured Post Title</h2>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-                            <a class="btn btn-primary" href="article.php">Read more →</a>
+                            <div class="small text-muted"><?php $phpdate = strtotime( $value['created'] ); $mysqldate = date( 'g:ia \o\n l jS F Y', $phpdate );
+                             echo $mysqldate;?></div>
+                            <h2 class="card-title"><?php echo $value['title'];?></h2>
+                            <p class="card-text"><?php echo $value['description'];?></p>
+                            <a class="btn btn-primary" href="article.php?id=<?php echo $value['id'];?>">Read more →</a>
                         </div>
                     </div>
+                    <?php }?>
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
                         <div class="col-lg-6">

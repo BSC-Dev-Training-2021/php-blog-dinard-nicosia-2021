@@ -30,7 +30,7 @@ class model
 
     function findAll()
     {
-        $result = $this->conn->query("SELECT * FROM $this->tableName ");
+        $result = $this->conn->query("SELECT * FROM $this->tableName");
         $resultArr = [];
         foreach ($result as $row) {
             $resultArr[] = $row;

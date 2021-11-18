@@ -39,7 +39,7 @@ include_once("./controler/article-controller.php");
             <div class="col-lg-8">
                 <!-- Post content-->
                 <?php $article_obj = new article();
-                $result = $article_obj->getIdBlog($_GET['id']);
+                $result = $article_obj->getIdBlog($_SESSION['blog_id']);
 
 
 
@@ -54,25 +54,26 @@ include_once("./controler/article-controller.php");
                             <h1 class="fw-bolder mb-1"><?php echo $value['title']; ?></h1>
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-2"><?php $phpdate = strtotime($value['created']);
-                                                                    $mysqldate = date('g:ia \o\n l jS F Y', $phpdate);
+                                                                    $mysqldate = date('g:i a \o\n l jS F Y', $phpdate);
                                                                     echo $mysqldate; ?></div>
                             <!-- Post categories-->
                         <?php
                     }
                     $categoriesById = new blog_post_categories();
-                    $selectedCategories = $categoriesById->displayCategoriesById($_GET['id']);
+                    $selectedCategories = $categoriesById->displayCategoriesById($_SESSION['blog_id']);
 
                     $categories_obj = new categories();
                     $categories = $categories_obj->findById($selectedCategories);
-                    
-                    //foreach ($results as $value){
+                    $results_selected_category = $categories_obj->displayCategoriesFiltered($categories);
+
+                    foreach ($results_selected_category as $value) {
+
+
                         ?>
-                        <a class="badge bg-secondary text-decoration-none link-light" href="#!"><?php $results = $categories_obj->displayCategoriesFiltered($categories);
-                                                                                                ?></a>
-                        <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+                            <a class="badge bg-secondary text-decoration-none link-light" href="#!"><?php echo $value['name']; ?></a>
                         <?php
-                        //}
-                        foreach ($result as $value) { ?>
+                    }
+                    foreach ($result as $value) { ?>
                         </header>
                         <!-- Preview image figure-->
                         <figure class="mb-4"><img class="img-fluid rounded" src="./assets/images/<?php echo $value['img_link']; ?>" alt="..." /></figure>
@@ -89,40 +90,64 @@ include_once("./controler/article-controller.php");
                     <div class="card bg-light">
                         <div class="card-body">
                             <!-- Comment form-->
-                            <form class="mb-4"><textarea class="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
+                            <form class="mb-4" method="POST" action="article.php">
+                                <textarea class="form-control" name="comment" rows="3" placeholder="Join the discussion and leave a comment!"></textarea>
+                                <div class="d-grid gap-2">
+                                    <button type="submit" name="comment_bttn" class="btn btn-primary" type="button">Enter</button>
+                                </div>
+                            </form>
                             <!-- Comment with nested comments-->
-                            <div class="d-flex mb-4">
-                                <!-- Parent comment-->
-                                <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                <div class="ms-3">
-                                    <div class="fw-bold">Commenter Name</div>
-                                    If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                                    <!-- Child comment 1-->
-                                    <div class="d-flex mt-4">
+
+                            <!-- Parent comment-->
+                            <?php
+                            $blog_post_comment_obj = new blog_post_comment();
+                            $result_comment = $blog_post_comment_obj->displayAllDataComment();
+                            $userObj = new user();
+                            //xdebug($result_comment);
+                            //echo "__________";
+                            //xdebug($result_user);
+                            foreach ($result_comment as $valueComment) {
+                            ?>
+                                <div class="d-flex mb-4">
+                                    <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                    <div class="ms-3">
+                                        <div class="fw-bold">
+                                            <?php
+                                        
+                                            $result_user = $userObj->getDisplayUserCommentbyid($valueComment['user_id']);
+                                            ?></div>
+                                        <?php echo $valueComment['comment']; ?>.
+                                        <div class="small text-muted"><?php $phpdate = strtotime($valueComment['created']);
+                                                                        $mysqldate = date('g:ia \o\n l jS F Y', $phpdate);
+                                                                        echo $mysqldate; ?></div>
+                                        <!-- Child comment 1-->
+
+                                        <!-- Child comment 2-->
+                                        <!-- <div class="d-flex mt-4">
+                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                                        <div class="ms-3">
+                                            <div class="fw-bold">Commenter Name</div>
+                                            When you put money directly to a problem, it makes a good headline.
+                                            <div class="d-flex mt-4">
                                         <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                         <div class="ms-3">
                                             <div class="fw-bold">Commenter Name</div>
                                             And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
                                         </div>
                                     </div>
-                                    <!-- Child comment 2-->
-                                    <div class="d-flex mt-4">
-                                        <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                                        <div class="ms-3">
-                                            <div class="fw-bold">Commenter Name</div>
-                                            When you put money directly to a problem, it makes a good headline.
                                         </div>
+                                    </div> -->
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
                             <!-- Single comment-->
-                            <div class="d-flex">
+                            <!-- <div class="d-flex">
                                 <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
                                 <div class="ms-3">
                                     <div class="fw-bold">Commenter Name</div>
                                     When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </section>
@@ -178,6 +203,7 @@ include_once("./controler/article-controller.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
+
 </body>
 
 </html>

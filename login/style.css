@@ -1,0 +1,297 @@
+body, div, header, footer, fieldset{
+    /* border: 1px gray solid; */
+    font-family: 'Times New Roman', Times, serif;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+}
+@media  (min-width:800px){
+    
+    .body-login{
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
+    .left{
+        display: flex;
+        flex: 1;
+    }
+        
+}
+@media (max-width:1200px){
+    .body-login{
+        display: flex;
+      flex-direction: column;
+      height: 100vh;
+        
+    }
+}
+.body-login{
+    display: flex;
+  height: 100vh;
+    
+}
+.right{
+    flex: 1;
+    background-image: linear-gradient(rgb(0, 95, 13), rgb(134, 0, 101));   
+    
+}
+.fieldset-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;   
+    
+}
+.fieldset-login input{
+    border-radius: 10px;
+    border:none;
+    padding: 5px;
+    margin: 5px;
+    width: 50%;
+}
+.login-user{
+    flex: 1;
+    color: green;
+}
+.login-pass{
+    flex: 1;
+    
+}
+.right h1, h3{
+    text-align: center;
+}
+.right h3 img{
+    height: 30vh;
+}
+.right h1{
+    font-size: 2rem;
+    color: rgba(245, 245, 245, 0.815);
+    background-color: rgba(20, 20, 20, 0.37);
+}
+.h-span1{
+    color: rgb(250, 37, 73);
+}
+.h-span2{
+    color: green;
+}
+.button {
+    margin: 20px;
+    flex: 1;
+
+}
+.button button{
+    margin:10px;
+
+}
+.button a{
+    text-decoration: none;
+    color: black;
+    
+}
+.left{
+    flex: 1;
+    background:linear-gradient( rgba(0, 0, 0, 0.774), rgba(170, 49, 49, 0.836) ), url("../image/login-bg.jpg") no-repeat center bottom;
+    box-sizing: inherit;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+}body, div, header, footer, fieldset{
+    /* border: 1px gray solid; */
+    font-family: 'Times New Roman', Times, serif;
+}
+html, body{
+    margin: 0;
+    padding: 0;
+}
+@media  (min-width:800px){
+    
+    .body-login{
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+    }
+    .left{
+        display: flex;
+        flex: 1;
+    }
+        
+}
+@media (max-width:1200px){
+    .body-login{
+        display: flex;
+      flex-direction: column;
+      height: 100vh;
+        
+    }
+}
+.body-login{
+    display: flex;
+  height: 100vh;
+    
+}
+.right{
+    flex: 1;
+    background-image: linear-gradient(rgb(15, 80, 55), rgb(134, 0, 101));   
+    
+}
+.fieldset-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;   
+    
+}
+.fieldset-login input{
+    border-radius: 10px;
+    border:none;
+    padding: 5px;
+    margin: 5px;
+    width: 50%;
+}
+.login-user{
+    flex: 1;
+    color: green;
+}
+.login-pass{
+    flex: 1;
+    
+}
+.right h1, h3{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4rem;
+}
+.right h1{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 4rem;
+}
+.right h3 img{
+    height: 30vh;
+}
+.right h1{
+    font-size: 2rem;
+    color: rgba(245, 245, 245, 0.815);
+    background-color: rgba(20, 20, 20, 0.37);
+}
+.h-span1{
+    color: rgb(250, 37, 73);
+}
+.h-span2{
+    color: green;
+}
+.button {
+    margin: 20px;
+    flex: 1;
+
+}
+.button button{
+    margin:10px;
+
+}
+.button a{
+    text-decoration: none;
+    color: black;
+    
+}
+.left{
+    flex: 1;
+    background:linear-gradient( rgba(0, 0, 0, 0.774), rgba(170, 49, 49, 0.836) ), url("../image/login-bg.jpg") no-repeat center bottom;
+    box-sizing: inherit;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.home{
+    display: flex;
+    flex-direction: column;
+}
+.header-1{
+    height: 100vh;
+    background:linear-gradient( rgba(0, 0, 0, 0.774), rgba(170, 49, 49, 0.836) ), url("image/wall.jpeg") no-repeat ;
+    box-sizing: inherit;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding: 0px;
+    margin: 0px;
+}
+.header-h1{
+    position: fixed;
+}
+
+.header-div{
+    flex: 1;
+}
+.section-1{
+    height: 100vh;
+    background-color: blanchedalmond;   
+}
+.section-2{
+    height: 100vh;
+    background-color: coral;
+}
+.footer{
+    text-align: center; color: green;
+}
+.link{
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    width:100px;
+    
+}
+.strong{
+    color: rgb(199, 9, 72);
+}
+
+.header-1{
+    height: 100vh;
+    background:linear-gradient( rgba(0, 0, 0, 0.774), rgba(170, 49, 49, 0.836) ), url("image/wall.jpeg") no-repeat ;
+    box-sizing: inherit;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:cover;
+    padding: 0px;
+    margin: 0px;
+}
+.header-h1{
+    position: fixed;
+}
+
+.header-div{
+    flex: 1;
+}
+.section-1{
+    height: 100vh;
+    background-color: blanchedalmond;   
+}
+.section-2{
+    height: 100vh;
+    background-color: coral;
+}
+.footer{
+    text-align: center; color: green;
+}
+.link{
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    width:100px;
+    
+}
+.strong{
+    color: rgb(17, 139, 6);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+

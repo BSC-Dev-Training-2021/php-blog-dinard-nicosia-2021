@@ -13,10 +13,7 @@ class categories extends model
     }
     public function displayCategoriesFiltered($data)
     {
-        $catType = [];
-        foreach($data as $value){
-          echo  $catType = $value['name'] . ",";
-         }
-         return $catType;
+        
+         return $data;
     }      
 }

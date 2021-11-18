@@ -7,10 +7,15 @@ class blog_post_categories extends model
         parent::__construct("blog_post_categories");
     }
     public function blog_post_categories_insert($id,$category_data){
+        $data=[];
         foreach($category_data as $categoryId){
-            $categoryData['blog_post_id']= $id;
-            $categoryData['category_id'] = $categoryId;
-            $this->insert($categoryData);
+            //$categoryData['blog_post_id']= $id;
+            //$categoryData['category_id'] = $categoryId;
+            $data = array(
+                'blog_post_id' => $id,
+                'category_id'=> $categoryId
+            );
+            $this->insert($data);
         }
     }
     
@@ -24,10 +29,10 @@ class blog_post_categories extends model
         }
         return $categories;
     }
-    function displayCategoriesName($data){
-        echo "new";
-        xdebug($data);
-    }
+    // function displayCategoriesName($data){
+    //     echo "new";
+    //     xdebug($data);
+    // }
 
 
 

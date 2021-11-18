@@ -11,6 +11,11 @@ class blog extends model
         $result = $this->findByUser($id);
         return $result;
     }
+    public function displayAllBlogs()
+    {
+        $result = $this->findAll();
+        return $result;
+    }
 
     public function blogPostInsert($data,$selectedCategories)
     {

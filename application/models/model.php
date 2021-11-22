@@ -56,6 +56,8 @@ class model
         }
         return $resultArr;
     }
+
+
     function findByIdnTitle($id, $title, $fields = '*')
     {
         $result = $this->conn->query("SELECT " . $fields . " FROM $this->tableName WHERE $title = $id");

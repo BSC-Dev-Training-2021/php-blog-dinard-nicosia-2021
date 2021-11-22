@@ -13,7 +13,11 @@ class blog extends model
     }
     public function getBlogById($id)
     {
-        $result = $this->findById($id);
+        $result = [];
+        foreach ($id as $resultIdCategoryVal) {
+            $result[] = $this->findById($resultIdCategoryVal);
+        }
+        //xdebug($result);
 
         return $result;
     }

@@ -1,6 +1,6 @@
 <?php
-require("./library/lib_handler.php");
-include_once("./controler/post-controller.php");
+require("../../library/lib_handler.php");
+include_once("../controlers/post-controller.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +12,9 @@ include_once("./controler/post-controller.php");
     <meta name="author" content="" />
     <title>Blog Post - Start Bootstrap Template</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../../css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -139,7 +139,7 @@ include_once("./controler/post-controller.php");
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="../../js/scripts.js"></script>
 </body>
 
 </html>

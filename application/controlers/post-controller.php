@@ -12,7 +12,7 @@ $blogpost = new blog();
         );
         $filename = $_FILES["img_link"]["name"];
         $tempname = $_FILES["img_link"]["tmp_name"];
-        $folder = "assets/images/" . $filename;
+        $folder = "../../assets/images/" . $filename;
         if (move_uploaded_file($tempname, $folder)) {
             debug_console("Image uploaded successfully");
         } else {
@@ -20,5 +20,6 @@ $blogpost = new blog();
         }
         
         $blogpost->blogPostInsert($data,$_POST['category']);
+        
     }
 ?>

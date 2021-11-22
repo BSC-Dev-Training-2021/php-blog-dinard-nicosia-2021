@@ -1,6 +1,6 @@
 <?php
-require("./library/lib_handler.php");
-include_once("./controler/article-controller.php");
+require("../../library/lib_handler.php");
+include_once("../controlers/article-controller.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,9 +12,9 @@ include_once("./controler/article-controller.php");
     <meta name="author" content="" />
     <title>Blog Post - Start Bootstrap Template</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../../css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -76,7 +76,7 @@ include_once("./controler/article-controller.php");
                     foreach ($result as $value) { ?>
                         </header>
                         <!-- Preview image figure-->
-                        <figure class="mb-4"><img class="img-fluid rounded" src="./assets/images/<?php echo $value['img_link']; ?>" alt="..." /></figure>
+                        <figure class="mb-4"><img class="img-fluid rounded" src="../../assets/images/<?php echo $value['img_link']; ?>" alt="..." /></figure>
                         <!-- Post content-->
                         <section class="mb-5">
                             <p class="fs-5 mb-4"><?php echo $value['content']; ?></p>
@@ -101,7 +101,7 @@ include_once("./controler/article-controller.php");
                             <!-- Parent comment-->
                             <?php
                             $blog_post_comment_obj = new blog_post_comment();
-                            $result_comment = $blog_post_comment_obj->displayAllDataComment();
+                            $result_comment = $blog_post_comment_obj->displayAllDataComment($_SESSION['blog_id']);
                             $userObj = new user();
                             //xdebug($result_comment);
                             //echo "__________";
@@ -202,7 +202,7 @@ include_once("./controler/article-controller.php");
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="../../js/scripts.js"></script>
 
 </body>
 

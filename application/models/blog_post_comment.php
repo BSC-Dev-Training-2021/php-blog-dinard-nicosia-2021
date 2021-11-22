@@ -9,8 +9,9 @@ class blog_post_comment extends model{
     function getInsertData($comment_data){
         $this->insert($comment_data);
     }
-    function displayAllDataComment(){
-        $commentData = $this->findAll();
+    function displayAllDataComment($id){
+        //$commentData = $this->findAll();
+        $commentData = $this->findByIdnTitle("blog_post_id",$id);
         return $commentData;
     }
 }

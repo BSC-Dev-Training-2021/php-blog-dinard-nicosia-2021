@@ -1,6 +1,6 @@
 <?php
-require("./library/lib_handler.php");
-require_once("./controler/index-controller.php");
+require("../../library/lib_handler.php");
+require_once("../controlers/index-controller.php");
 
 ?>
 <!DOCTYPE html>
@@ -13,9 +13,9 @@ require_once("./controler/index-controller.php");
     <meta name="author" content="" />
     <title>My Blog - Home</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="../../css/styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -50,12 +50,26 @@ require_once("./controler/index-controller.php");
             <div class="col-lg-8">
                 <?php
                 $blog = new blog();
-                $result = $blog->getBlog(1);
+
+                if (isset($_GET['idCategory'])) {
+                    $blog_post_category_id = $_GET['idCategory'];
+                    $blog_post_category_obj = new blog_post_categories();
+                    $resultIdCategory = $blog_post_category_obj->displayBlogpostId($blog_post_category_id);
+                    // xdebug($resultIdCategory);
+                    foreach ($resultIdCategory as $resultIdCategoryVal) {
+                        $result = $blog->getBlogById($resultIdCategoryVal);
+                        //xdebug($result);
+                    }
+                } else {
+                    $resultIdCategory = 1;
+                    $result = $blog->getBlogByUser($resultIdCategory);
+                }
+                //xdebug($result);
                 foreach ($result as $value) {
                 ?>
                     <!-- Featured blog post-->
                     <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="./assets/images/<?php echo $value['img_link']; ?>" alt="..." /></a>
+                        <a href="#!"><img class="card-img-top" src="../../assets/images/<?php echo $value['img_link']; ?>" alt="..." /></a>
                         <div class="card-body">
                             <div class="small text-muted"><?php $phpdate = strtotime($value['created']);
                                                             $mysqldate = date('g:ia \o\n l jS F Y', $phpdate);
@@ -80,7 +94,7 @@ require_once("./controler/index-controller.php");
                     ?>
                         <div class="col-lg-6">
                             <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="./assets/images/<?php echo $value['img_link']; ?>" alt="..." /></a>
+                                <a href="#!"><img class="card-img-top" src="../../assets/images/<?php echo $value['img_link']; ?>" alt="..." /></a>
                                 <div class="card-body">
                                     <div class="small text-muted"><?php $phpdate = strtotime($value['created']);
                                                                     $mysqldate = date('g:ia \o\n l jS F Y', $phpdate);
@@ -135,7 +149,7 @@ require_once("./controler/index-controller.php");
                             ?>
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!"><?php echo $value['name']; ?></a></li>
+                                        <li><a href="index.php?idCategory=<?php echo $value['id']; ?>"><?php echo $value['name']; ?></a></li>
                                     </ul>
                                 </div>
                             <?php } ?>
@@ -159,7 +173,7 @@ require_once("./controler/index-controller.php");
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="../../js/scripts.js"></script>
 </body>
 
 </html>

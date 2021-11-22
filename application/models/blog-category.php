@@ -13,7 +13,7 @@ class categories extends model
     }
     public function displayCategoriesFiltered($data)
     {
-        
-         return $data;
-    }      
+
+        return $data;
+    }
 }

@@ -25,9 +25,17 @@ include_once("../controlers/post-controller.php");
                             <h1 class="fw-bolder mb-1">Create a new blog entry</h1>
                             <!-- Post meta content-->
                             <div class="text-muted fst-italic mb-3">Express your mind!</div>
+
                         </header>
                         <!-- Post content-->
                         <section class="mb-5">
+                        
+                            <!-- <div class='col-sm-6'>
+                                <div class='card' style='height:39.2vh;'>
+                                <figure class="mb-4"><img class="img-fluid rounded" src="../../assets/images/<?php echo $value['img_link']; ?>" alt="..." /></figure>
+                                    <img id="blah" class='card-img-top' src="#" alt="No Preview" style='height:39.2vh;' />
+                                </div>
+                            </div> -->
                             <form method="POST" action="post.php" enctype="multipart/form-data">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Title</span>
@@ -44,7 +52,7 @@ include_once("../controlers/post-controller.php");
                                 </div>
                                 <div class="mb-3">
                                     <label for="formFile" class="form-label">Upload Image</label>
-                                    <input name="img_link" class="form-control" type="file" id="formFile">
+                                    <input name="img_link" class="form-control" type="file" id="imgInp" id="formFile">
                                 </div>
 
                                 <?php
@@ -112,6 +120,16 @@ include_once("../controlers/post-controller.php");
     </div>
     <!-- Footer-->
     <?php include_once('footer.php'); ?>
+    <script>
+        imgInp.onchange = evt => {
+            const [file] = imgInp.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+            } else {
+                blah.src = URL.createObjectURL("../image/nopreview.jpeg")
+            }
+        }
+    </script>
 </body>
 
 </html>

@@ -29,6 +29,25 @@ require_once("../controlers/index-controller.php");
             <!-- Blog entries-->
             <div class="col-lg-8">
                 <?php
+                if (isset($_GET['idCategory'])) {
+                    $categories_display = new categories();
+                    $result = $categories_display->findById($_GET['idCategory']);
+                    foreach ($result as $value) {
+                ?>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    <h2 class="display-3">
+                                        <?php echo $value['name']; ?>
+                                    </h2>
+                                </li>
+                            </ol>
+                        </nav>
+
+
+                    <?php
+                    }
+                }
                 $blog = new blog();
                 $result = [];
                 if (isset($_GET['idCategory'])) {
@@ -46,27 +65,35 @@ require_once("../controlers/index-controller.php");
                     //xdebug($result);
                 }
                 //xdebug($result);
-                foreach ($result as $value) {
+                if ($result) {
+                    foreach ($result as $value) {
 
-                ?>
-                    <!-- Featured blog post-->
-                    <div class="card mb-4">
-                        <a href="#!"><img class="card-img-top" src="../../assets/images/<?php echo $value['img_link']; ?>" alt="..." /></a>
-                        <div class="card-body">
-                            <div class="small text-muted"><?php $phpdate = strtotime($value['created']);
-                                                            $mysqldate = date('g:ia \o\n l jS F Y', $phpdate);
-                                                            echo $mysqldate; ?></div>
-                            <h2 class="card-title"><?php echo $value['title']; ?></h2>
-                            <p class="card-text"><?php echo $value['description']; ?></p>
-                            <form action="article.php" method="POST">
-                                <input type="hidden" name="blog_id" value="<?php echo $value['id']; ?>">
-                                <button class="btn btn-primary" name="read_more_bttn" type="submit">Read more →</button>
-                            </form>
+                    ?>
+                        <!-- Featured blog post-->
+                        <div class="card mb-4">
+                            <a href="#!"><img class="card-img-top" src="../../assets/images/<?php echo $value['img_link']; ?>" alt="..." /></a>
+                            <div class="card-body">
+                                <div class="small text-muted"><?php $phpdate = strtotime($value['created']);
+                                                                $mysqldate = date('g:ia \o\n l jS F Y', $phpdate);
+                                                                echo $mysqldate; ?></div>
+                                <h2 class="card-title"><?php echo $value['title']; ?></h2>
+                                <p class="card-text"><?php echo $value['description']; ?></p>
+                                <form action="article.php" method="POST">
+                                    <input type="hidden" name="blog_id" value="<?php echo $value['id']; ?>">
+                                    <button class="btn btn-primary" name="read_more_bttn" type="submit">Read more →</button>
+                                </form>
 
+                            </div>
                         </div>
+                    <?php
+
+                    }
+                } else {
+                    ?>
+                    <div class="card mb-4">
+                        <h2>There's no items in Category selected</h2>
                     </div>
                 <?php
-
                 }
                 ?>
                 <!-- Nested row for non-featured blog posts-->

@@ -51,12 +51,14 @@ class model
 
         $result = $this->conn->query($q);
         $resultArr = [];
-        foreach ($result as $row) {
-            $resultArr[] = $row;
+        if ($result) {
+            foreach ($result as $row) {
+                $resultArr[] = $row;
+            }
+            return $resultArr;
         }
-        return $resultArr;
+        
     }
-
 
     function findByIdnTitle($id, $title, $fields = '*')
     {
@@ -67,7 +69,6 @@ class model
         }
         return $resultArr;
     }
-
 
     function insert($data)
     {
@@ -82,16 +83,30 @@ class model
 
     }
 
-
-
-    function update($id, $fields)
+    function update($data)
     {
-        /*
-                put your generic UPDATE query here
-            */
+        foreach ($data as $key => $datas) {
+           $columnArr []= $key;
+           $dataArr []= $datas;
+           $mysql = $this->conn->query("UPDATE $this->tableName SET $key = '" .$datas. "'  WHERE id='".$_SESSION['id_category']."' ");
+        }
+
+        //print_r($result);
+        //$newarraynama = rtrim($result, ", ");
+        //echo $result;
+        //return $mysql;
+        
+        
     }
 
-    function delete()
+    function delete($data)
     {
+        foreach ($data as $key => $data) {
+            $columnArr = $key;
+            $dataArr = $data;
+        }
+        $mysql = $this->conn->query("DELETE FROM $this->tableName WHERE $columnArr='". $dataArr ."' ");
+        return $mysql;
+    
     }
 }

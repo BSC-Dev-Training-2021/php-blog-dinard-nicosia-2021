@@ -16,4 +16,13 @@ class categories extends model
 
         return $data;
     }
+    public function getDataDisplay($data){
+        $this->insert($data);
+    }
+    public function getDataEdit($data){
+        $this->update($data);
+    }
+    public function getDataDelete($data){
+        $this->delete($data);
+    }
 }

@@ -8,6 +8,7 @@
                 <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                 <li class="nav-item"><a class="nav-link" href="post.php">Post</a></li>
+                <li class="nav-item"><a class="nav-link" href="category.php">Category</a></li>
             </ul>
         </div>
     </div>

@@ -29,7 +29,6 @@ class blog_post_categories extends model
     public function displayCategoriesById($id)
     {
         $resultss = $this->findByIdnTitle("blog_post_id", $id, "category_id");
-
         $categories = [];
         foreach ($resultss as $catId) {
             $categories[] = $catId['category_id'];

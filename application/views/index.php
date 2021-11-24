@@ -61,10 +61,9 @@ require_once("../controlers/index-controller.php");
 
                 } else {
                     $resultIdCategory = 1;
-                    $result = $blog->getBlogByUser($resultIdCategory);
-                    //xdebug($result);
+                    $result = $blog->displayAllBlogs();
                 }
-                //xdebug($result);
+
                 if ($result) {
                     foreach ($result as $value) {
 

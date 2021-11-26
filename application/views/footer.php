@@ -9,3 +9,13 @@
     <!-- Core theme JS-->
     <script src="../../js/scripts.js"></script>
 </footer>
+<script>
+    imgInp.onchange = evt => {
+        const [file] = imgInp.files
+        if (file) {
+            blah.src = URL.createObjectURL(file)
+        } else {
+            blah.src = URL.createObjectURL("../image/nopreview.jpeg")
+        }
+    }
+</script>

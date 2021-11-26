@@ -22,7 +22,11 @@ class categories extends model
     public function getDataEdit($data){
         $this->update($data);
     }
+
     public function getDataDelete($data){
-        $this->delete($data);
+        $dataArr = array(
+            'id' => $data
+        );
+        $this->delete($dataArr);
     }
 }

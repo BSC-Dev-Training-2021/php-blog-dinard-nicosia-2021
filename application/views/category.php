@@ -20,7 +20,7 @@ include_once("../controlers/category-controller.php");
                 <div class="row">
                     <div class="col-lg-8">
                         <!-- Contact Us header-->
-                        <nav class="navbar navbar-expand-lg navbar-light bg-<?php echo $nav;?> mb-3">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-<?php echo $nav; ?> mb-3">
                             <div class="container-fluid">
                                 <a class="navbar-brand" href="#">Category</a>
                                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@ include_once("../controlers/category-controller.php");
                                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                                     <ul class="navbar-nav">
                                         <li class="nav-item">
-                                            <a class="nav-link active" aria-current="page" href="#"><?php echo $nav_name;?></a>
+                                            <a class="nav-link active" aria-current="page" href="#"><?php echo $nav_name; ?></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -43,8 +43,8 @@ include_once("../controlers/category-controller.php");
                             <form method="POST" action="category.php">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Category Name</span>
-                                    <input type="text" name="name" class="form-control" value="<?php echo $name_value;?>" placeholder="">
-                                    <input type="hidden" name="id" class="form-control" value="<?php echo $id_value;?>">
+                                    <input type="text" name="name" class="form-control" value="<?php echo $name_value; ?>" placeholder="">
+                                    <input type="hidden" name="id" class="form-control" value="<?php echo $id_value; ?>">
                                 </div>
 
 
@@ -60,7 +60,7 @@ include_once("../controlers/category-controller.php");
                                         </label>
                                     </div>
                                 <?php } ?> -->
-                                <button type="submit" name="<?php echo $nav_bttn;?>" class="btn btn-<?php echo $nav;?> mt-2">Save</button>
+                                <button type="submit" name="<?php echo $nav_bttn; ?>" class="btn btn-<?php echo $nav; ?> mt-2">Save</button>
                             </form>
                         </section>
                     </div>
@@ -88,17 +88,27 @@ include_once("../controlers/category-controller.php");
                                     <?php
                                     $categories_display = new categories();
                                     $result = $categories_display->findAll();
+                                    $value_num = 1;
                                     foreach ($result as $value) {
                                     ?>
                                         <tr>
                                             <form action="category.php" method="POST">
-                                            <th scope="row"><?php echo $value['id']; ?></th>
-                                            <td><?php echo $value['name']; ?></td>
-                                            <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
-                                            <input type="hidden" name="name" value="<?php echo $value['name']; ?>">
-                                            <td><button type="submit" name="edit_bttn" class="btn-sm btn-warning"> Edit </button>
-                                                <button type="submit" name="delete_bttn" class="btn-sm btn-danger">Delete</button>
-                                            </td>
+                                                <th scope="row"><?php echo $value_num++; ?></th>
+                                                <td><?php echo $value['name']; ?></td>
+                                                <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                                                <input type="hidden" name="name" value="<?php echo $value['name']; ?>">
+                                                <td><button type="submit" name="edit_bttn" class="btn-sm btn-warning"> Edit </button>
+                                                <?php
+                                                $BPcategoriesData = new blog_post_categories();
+                                                 $resultFind = $BPcategoriesData->getDataDeleteFind($value['id']);
+                                                 if(!$resultFind){
+                                                     ?>
+                                                     <button type="submit" name="delete_bttn" class="btn-sm btn-danger">Delete</button>
+                                                     <?php
+                                                 }
+                                                ?>
+                                                    
+                                                </td>
                                             </form>
                                         </tr>
 
@@ -131,16 +141,6 @@ include_once("../controlers/category-controller.php");
     </div>
     <!-- Footer-->
     <?php include_once('footer.php'); ?>
-    <script>
-        imgInp.onchange = evt => {
-            const [file] = imgInp.files
-            if (file) {
-                blah.src = URL.createObjectURL(file)
-            } else {
-                blah.src = URL.createObjectURL("../image/nopreview.jpeg")
-            }
-        }
-    </script>
 </body>
 
 </html>

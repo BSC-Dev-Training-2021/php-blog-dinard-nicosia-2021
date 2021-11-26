@@ -34,9 +34,13 @@ $name_value ="";
         $categoriesData->getDataEdit($data);
     }
     if(isset($_POST['delete_bttn'])){
+        
+        $categoriesData = new categories();
+        $BPcategoriesData = new blog_post_categories();
         $data = array(
-            'id' => $_POST['id']
+            'category_id' => $_POST['id']
         );
         $categoriesData = new categories();
-        $categoriesData->getDataDelete($data);
+        $categoriesData->getDataDelete($_POST['id']);
+        
     }

@@ -35,6 +35,17 @@ class blog_post_categories extends model
         }
         return $categories;
     }
+    public function getDataDeleteFind($data){
+        $data_id = array(
+            'category_id' => $data
+        );
+        foreach ($data_id as $key => $data) {
+            $columnArr = $key;
+            $dataArr = $data;
+        }
+        $result = $this->findByIdnTitle($dataArr, $columnArr);
+         return $result;
+     }
     // function displayCategoriesName($data){
     //     echo "new";
     //     xdebug($data);

@@ -11,5 +11,10 @@ require('../models/blog-category.php');
 require('../models/blog_post_categories.php');
 require('../models/blog_post_comment.php');
 require('../models/user.php');
+// function my_autoloader($class) {
+//     include '../models/' . $class . '.php';
+// }
+
+// spl_autoload_register('my_autoloader');
 session_start();
 ?>

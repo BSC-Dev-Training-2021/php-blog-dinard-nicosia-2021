@@ -20,12 +20,18 @@ include_once("../controlers/article-controller.php");
                 <!-- Post content-->
                 <?php $article_obj = new article();
                 $result = $article_obj->getIdBlog($_SESSION['blog_id']);
+                //$resultTest = $article_obj->findInnerJoin($_SESSION['blog_id']);
+                // foreach($resultTest as $vals){
+                    
+                // }
+                
 
 
 
                 //xdebug($cat_type_name);
 
                 foreach ($result as $value) {
+                    // xdebug($value);
                 ?>
                     <article>
                         <!-- Post header-->

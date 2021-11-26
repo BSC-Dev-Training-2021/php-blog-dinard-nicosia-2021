@@ -55,9 +55,19 @@ class model
             foreach ($result as $row) {
                 $resultArr[] = $row;
             }
+            
             return $resultArr;
         }
-        
+    }
+    function findInnerJoin($data)
+    {
+        $result = $this->conn->query("
+        SELECT category_types.id, category_types.name, blog_post_categories.blog_post_id
+        FROM blog_post_categories
+        INNER JOIN category_types
+        ON blog_post_categories.category_id=category_types.id
+        WHERE blog_post_categories.blog_post_id =$data");
+        return $result;
     }
 
     function findByIdnTitle($id, $title, $fields = '*')
@@ -67,6 +77,7 @@ class model
         foreach ($result as $row) {
             $resultArr[] = $row;
         }
+        
         return $resultArr;
     }
 

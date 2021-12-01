@@ -82,16 +82,16 @@ include_once("../controlers/category-controller.php");
                                                 <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
                                                 <input type="hidden" name="name" value="<?php echo $value['name']; ?>">
                                                 <td><button type="submit" name="edit_bttn" class="btn-sm btn-warning"> Edit </button>
-                                                <?php
-                                                $BPcategoriesData = new blog_post_categories();
-                                                 $resultFind = $BPcategoriesData->getDataDeleteFind($value['id']);
-                                                 if(!$resultFind){
-                                                     ?>
-                                                     <button type="submit" name="delete_bttn" class="btn-sm btn-danger">Delete</button>
-                                                     <?php
-                                                 }
-                                                ?>
-                                                    
+                                                    <?php
+                                                    $BPcategoriesData = new blog_post_categories();
+                                                    $resultFind = $BPcategoriesData->getDataDeleteFind($value['id']);
+                                                    if (!$resultFind) {
+                                                    ?>
+                                                        <button type="submit" name="delete_bttn" class="btn-sm btn-danger">Delete</button>
+                                                    <?php
+                                                    }
+                                                    ?>
+
                                                 </td>
                                             </form>
                                         </tr>

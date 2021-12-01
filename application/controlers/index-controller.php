@@ -12,13 +12,10 @@ if (isset($_GET['idCategory'])) {
     $blog_post_category_id = $_GET['idCategory'];
     $blog_post_category_obj = new blog_post_categories();
     $resultIdCategory = $blog_post_category_obj->displayBlogpostId($blog_post_category_id);
-    // xdebug($resultIdCategory);
-
     $result = $blog->findById($resultIdCategory);
-    //xdebug($resultByCat);
-
 } else {
     $resultIdCategory = 1;
     $result = $blog->displayAllBlogs();
 }
 $AllBlogs = $blog->displayAllBlogs();
+

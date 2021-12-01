@@ -1,3 +1,4 @@
+<?php include_once("../controlers/sidebar-controller.php") ?>
 <div class="col-lg-4">
     <!-- Search widget-->
     <div class="card mb-4">
@@ -16,9 +17,7 @@
             <div class="row">
 
                 <?php
-                $categories_display = new categories();
-                $result = $categories_display->findAll();
-                foreach ($result as $value) {
+                foreach ($result_category_display as $value) {
                 ?>
                     <div class="col-sm-6">
                         <ul class="list-unstyled mb-0">

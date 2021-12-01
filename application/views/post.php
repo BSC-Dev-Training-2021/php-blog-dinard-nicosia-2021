@@ -30,12 +30,6 @@ include_once("../controlers/post-controller.php");
                         <!-- Post content-->
                         <section class="mb-5">
                         
-                            <!-- <div class='col-sm-6'>
-                                <div class='card' style='height:39.2vh;'>
-                                <figure class="mb-4"><img class="img-fluid rounded" src="../../assets/images/<?php echo $value['img_link']; ?>" alt="..." /></figure>
-                                    <img id="blah" class='card-img-top' src="#" alt="No Preview" style='height:39.2vh;' />
-                                </div>
-                            </div> -->
                             <form method="POST" action="post.php" enctype="multipart/form-data">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">Title</span>

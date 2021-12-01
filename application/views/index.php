@@ -29,45 +29,9 @@ require_once("../controlers/index-controller.php");
             <!-- Blog entries-->
             <div class="col-lg-8">
                 <?php
-                if (isset($_GET['idCategory'])) {
-                    $categories_display = new categories();
-                    $result = $categories_display->findById($_GET['idCategory']);
-                    foreach ($result as $value) {
-                ?>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item active" aria-current="page">
-                                    <h2 class="display-3">
-                                        <?php echo $value['name']; ?>
-                                    </h2>
-                                </li>
-                            </ol>
-                        </nav>
-
-
-                    <?php
-                    }
-                }
-                $blog = new blog();
-                $result = [];
-                if (isset($_GET['idCategory'])) {
-                    $blog_post_category_id = $_GET['idCategory'];
-                    $blog_post_category_obj = new blog_post_categories();
-                    $resultIdCategory = $blog_post_category_obj->displayBlogpostId($blog_post_category_id);
-                    // xdebug($resultIdCategory);
-
-                    $result = $blog->findById($resultIdCategory);
-                    //xdebug($resultByCat);
-
-                } else {
-                    $resultIdCategory = 1;
-                    $result = $blog->displayAllBlogs();
-                }
-
                 if ($result) {
                     foreach ($result as $value) {
-
-                    ?>
+                ?>
                         <!-- Featured blog post-->
                         <div class="card mb-4">
                             <a href="#!"><img class="card-img-top" src="../../assets/images/<?php echo $value['img_link']; ?>" alt="..." /></a>
@@ -100,7 +64,6 @@ require_once("../controlers/index-controller.php");
 
                     <!-- Blog post-->
                     <?php
-                    $AllBlogs = $blog->displayAllBlogs();
                     foreach ($AllBlogs as $value) {
                     ?>
                         <div class="col-lg-6">

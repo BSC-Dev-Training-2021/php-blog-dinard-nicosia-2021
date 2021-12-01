@@ -23,7 +23,7 @@ class blog extends model
     }
     public function displayAllBlogs()
     {
-        $result = $this->findAll();
+        $result = $this->findAll('DESC');
         return $result;
     }
 

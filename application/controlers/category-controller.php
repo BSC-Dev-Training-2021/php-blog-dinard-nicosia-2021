@@ -44,3 +44,6 @@ $name_value ="";
         $categoriesData->getDataDelete($_POST['id']);
         
     }
+    $categories_display = new categories();
+    $result = $categories_display->findAll();
+    $value_num = 1;

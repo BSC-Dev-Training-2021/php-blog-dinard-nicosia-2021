@@ -28,9 +28,9 @@ class model
         return $resultArr;
     }
 
-    function findAll()
+    function findAll($data = 'ASC')
     {
-        $result = $this->conn->query("SELECT * FROM $this->tableName");
+        $result = $this->conn->query("SELECT * FROM $this->tableName ORDER BY id $data");
         $resultArr = [];
         foreach ($result as $row) {
             $resultArr[] = $row;

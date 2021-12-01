@@ -46,20 +46,6 @@ include_once("../controlers/category-controller.php");
                                     <input type="text" name="name" class="form-control" value="<?php echo $name_value; ?>" placeholder="">
                                     <input type="hidden" name="id" class="form-control" value="<?php echo $id_value; ?>">
                                 </div>
-
-
-                                <!-- <?php
-                                        $blogPostObj = new categories();
-                                        $resultCategories = $blogPostObj->displayCategories();
-                                        foreach ($resultCategories as $value) {
-                                        ?>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="<?php echo $value['id']; ?>" name="category[]" id="flexCheckChecked<?php echo ($value['id']) ?> ">
-                                        <label class="form-check-label" for="flexCheckChecked<?php echo ($value['id']) ?> ">
-                                            <?php echo $value['name']; ?>
-                                        </label>
-                                    </div>
-                                <?php } ?> -->
                                 <button type="submit" name="<?php echo $nav_bttn; ?>" class="btn btn-<?php echo $nav; ?> mt-2">Save</button>
                             </form>
                         </section>
@@ -86,9 +72,7 @@ include_once("../controlers/category-controller.php");
 
 
                                     <?php
-                                    $categories_display = new categories();
-                                    $result = $categories_display->findAll();
-                                    $value_num = 1;
+
                                     foreach ($result as $value) {
                                     ?>
                                         <tr>

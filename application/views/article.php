@@ -18,20 +18,8 @@ include_once("../controlers/article-controller.php");
         <div class="row">
             <div class="col-lg-8">
                 <!-- Post content-->
-                <?php $article_obj = new article();
-                $result = $article_obj->getIdBlog($_SESSION['blog_id']);
-                //$resultTest = $article_obj->findInnerJoin($_SESSION['blog_id']);
-                // foreach($resultTest as $vals){
-                    
-                // }
-                
-
-
-
-                //xdebug($cat_type_name);
-
+                <?php 
                 foreach ($result as $value) {
-                    // xdebug($value);
                 ?>
                     <article>
                         <!-- Post header-->
@@ -45,16 +33,7 @@ include_once("../controlers/article-controller.php");
                             <!-- Post categories-->
                         <?php
                     }
-                    $categoriesById = new blog_post_categories();
-                    $selectedCategories = $categoriesById->displayCategoriesById($_SESSION['blog_id']);
-
-                    $categories_obj = new categories();
-                    $categories = $categories_obj->findById($selectedCategories);
-                    $results_selected_category = $categories_obj->displayCategoriesFiltered($categories);
-
                     foreach ($results_selected_category as $value) {
-
-
                         ?>
                             <a class="badge bg-secondary text-decoration-none link-light" href="#!"><?php echo $value['name']; ?></a>
                         <?php
@@ -86,12 +65,7 @@ include_once("../controlers/article-controller.php");
 
                             <!-- Parent comment-->
                             <?php
-                            $blog_post_comment_obj = new blog_post_comment();
-                            $result_comment = $blog_post_comment_obj->displayAllDataComment($_SESSION['blog_id']);
-                            $userObj = new user();
-                            //xdebug($result_comment);
-                            //echo "__________";
-                            //xdebug($result_user);
+
                             foreach ($result_comment as $valueComment) {
                             ?>
                                 <div class="d-flex mb-4">

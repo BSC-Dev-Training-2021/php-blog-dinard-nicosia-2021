@@ -18,17 +18,34 @@ class blog_post_categories extends model
             $this->insert($data);
         }
     }
-    
+    public function displayBlogpostId($id){
+        $resultss = $this->findByIdnTitle("category_id", $id, "blog_post_id");
+        $categories_post_id = [];
+        foreach ($resultss as $catId) {
+            $categories_post_id[] = $catId['blog_post_id'];
+        }
+        return $categories_post_id;
+    }
     public function displayCategoriesById($id)
     {
         $resultss = $this->findByIdnTitle("blog_post_id", $id, "category_id");
-
         $categories = [];
         foreach ($resultss as $catId) {
             $categories[] = $catId['category_id'];
         }
         return $categories;
     }
+    public function getDataDeleteFind($data){
+        $data_id = array(
+            'category_id' => $data
+        );
+        foreach ($data_id as $key => $data) {
+            $columnArr = $key;
+            $dataArr = $data;
+        }
+        $result = $this->findByIdnTitle($dataArr, $columnArr);
+         return $result;
+     }
     // function displayCategoriesName($data){
     //     echo "new";
     //     xdebug($data);

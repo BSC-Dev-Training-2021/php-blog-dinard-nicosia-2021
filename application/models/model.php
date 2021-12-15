@@ -28,9 +28,9 @@ class model
         return $resultArr;
     }
 
-    function findAll()
+    function findAll($data = 'ASC')
     {
-        $result = $this->conn->query("SELECT * FROM $this->tableName");
+        $result = $this->conn->query("SELECT * FROM $this->tableName ORDER BY id $data");
         $resultArr = [];
         foreach ($result as $row) {
             $resultArr[] = $row;
@@ -51,11 +51,25 @@ class model
 
         $result = $this->conn->query($q);
         $resultArr = [];
-        foreach ($result as $row) {
-            $resultArr[] = $row;
+        if ($result) {
+            foreach ($result as $row) {
+                $resultArr[] = $row;
+            }
+            
+            return $resultArr;
         }
-        return $resultArr;
     }
+    function findInnerJoin($data)
+    {
+        $result = $this->conn->query("
+        SELECT category_types.id, category_types.name, blog_post_categories.blog_post_id
+        FROM blog_post_categories
+        INNER JOIN category_types
+        ON blog_post_categories.category_id=category_types.id
+        WHERE blog_post_categories.blog_post_id =$data");
+        return $result;
+    }
+
     function findByIdnTitle($id, $title, $fields = '*')
     {
         $result = $this->conn->query("SELECT " . $fields . " FROM $this->tableName WHERE $title = $id");
@@ -63,9 +77,9 @@ class model
         foreach ($result as $row) {
             $resultArr[] = $row;
         }
+        
         return $resultArr;
     }
-
 
     function insert($data)
     {
@@ -80,16 +94,30 @@ class model
 
     }
 
-
-
-    function update($id, $fields)
+    function update($data)
     {
-        /*
-                put your generic UPDATE query here
-            */
+        foreach ($data as $key => $datas) {
+           $columnArr []= $key;
+           $dataArr []= $datas;
+           $mysql = $this->conn->query("UPDATE $this->tableName SET $key = '" .$datas. "'  WHERE id='".$_SESSION['id_category']."' ");
+        }
+
+        //print_r($result);
+        //$newarraynama = rtrim($result, ", ");
+        //echo $result;
+        //return $mysql;
+        
+        
     }
 
-    function delete()
+    function delete($data)
     {
+        foreach ($data as $key => $data) {
+            $columnArr = $key;
+            $dataArr = $data;
+        }
+        $mysql = $this->conn->query("DELETE FROM $this->tableName WHERE $columnArr='". $dataArr ."' ");
+        return $mysql;
+    
     }
 }
